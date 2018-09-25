@@ -7,6 +7,8 @@ Age goes up regardless
 make setInterval that goes up to 60 seconds
 If user timer reaches 60 while, hunger, sleepiness, n boredom aren't 0. then console log "you win!"
 **********************************************/
+/**********************************************
+PSEUDOCODE
 //create an object for our tomagotchi
 //attach properties to the object
 //create a game object
@@ -32,76 +34,80 @@ If user timer reaches 60 while, hunger, sleepiness, n boredom aren't 0. then con
 //animate the tomagotchi somehow.. maybe every time one of the object properties goes up or down it moves one to the left or one to the right
 //game
 //class --- objects
+**********************************************/
 
 /************************************************
 Below are global variables
 *************************************************/
-let time = 0;
-let hunger = 0;
-let sleepiness = 0;
-let boredom = 0;
+// let time = 0;
+// let hunger = 0;
+// let sleepiness = 0;
+// let boredom = 0;
 /******************************************
 Our pet object. Our pet has different constructors.. i'm not too sure what this._____ is or does. read up on it
 *******************************************/
 class Katagachi{
-  constructor(boredom, name, age, sleepiness, hunger ) {
-    this.name = name;
-    this.age = age;
-    this.boredom = boredom;
-    this.sleepiness = sleepiness;
-    this.hunger = hunger;
+  	constructor(boredom, name, age, sleepiness, hunger ) {
+	    this.name = name;
+	    this.age = age;
+	    this.boredom = boredom;
+	    this.sleepiness = sleepiness;
+	    this.hunger = hunger;
+	}
 /************************************************
 Below are the methods associated with the katagachi
 
 *************************************************/
-	instantiate = ()=>{
 
-		}	
 
-	isAlive = ()=>{
-
-		}
-
-	feedUp = ()=>{
-
-		}
-
-	lightsOff = ()=> {
-
-		}
-
-	petUp = ()=> {
-
-		}
-
-	sleepUp = ()=> {
-
-		}	
+	isAlive() {
+		//if boredom, sleepiness, and hunger are > 0 --> isAlive true
+		//else if boredom, sleepiness, and hunger are = 0 --->isAlive false
 	}
+
+	feedUp() {
+		// subtract 1 from hunger
+	}
+
+	lightsOff()  {
+		//subtract 1 from sleepiness
+	}
+
+	petUp() {
+		//subtract 1 from boredom
+	}
+
 };
+
 /************************************************
 Below is the function that is attached to the name button that starts the timer
 from 0 to 60s. //to add later-- if timer reaches 60. clear interval and restart everything.. somehow..
 
 *************************************************/
 const setTimer = () => {
-	const interval = setInterval(()=>{
+	const interval = setInterval(() => {
 		time++;
-	if(time === 60){
-		clearInterval(interval);
+		if(time === 60){
+			clearInterval(interval);
 
-	 }
+		}
 	 	$('#timer').text('Timer ' + time + 's');
 	}, 1000)
 
 };
+
+/************************************************
+Below is the function that is attached to the pet button that will increase the Happiness meter by one per click... i guess. also make it so hapiness starts at like.. 20 or something at decreases one every 3000-4000 milliseconds or soemthing
+*************************************************/
+// const 
 /************************************************
 Below is the game object. The game object will have all of the methods that are associated with
 the game itsself; example: startGame().....uhh and other methods.... figure this out asap
 
 *************************************************/
 // //game object
-// const game = {
+const game = {
+
 // 	pet()=> {
 
 // 	}
@@ -109,7 +115,7 @@ the game itsself; example: startGame().....uhh and other methods.... figure this
 // 	turnOffLights() =>{
 
 // 	}
-// }
+}
 
 
 
@@ -147,7 +153,9 @@ $('#feedBut').on('click', ()=>{
 
 
 
-
+/************************************************
+TODO NEXT: add events to pet, lights off and feed buttons so hunger, sleepiness, and boredom will go up by one. also set hunger, sleepiness and boredom to X number and set interval them to go to zero.
+*************************************************/
 
 
 
