@@ -32,8 +32,16 @@ If user timer reaches 60 while, hunger, sleepiness, n boredom aren't 0. then con
 //animate the tomagotchi somehow.. maybe every time one of the object properties goes up or down it moves one to the left or one to the right
 //game
 //class --- objects
+
+/************************************************
+Below are global variables
+*************************************************/
+let time = 0;
+let hunger = 0;
+let sleepiness = 0;
+let boredom = 0;
 /******************************************
-Our pet object. Our pet has different constructors 
+Our pet object. Our pet has different constructors.. i'm not too sure what this._____ is or does. read up on it
 *******************************************/
 class Katagachi{
   constructor(boredom, name, age, sleepiness, hunger ) {
@@ -82,7 +90,8 @@ const setTimer = () => {
 	if(time === 60){
 		clearInterval(interval);
 
-	}
+	 }
+	 	$('#timer').text('Timer ' + time + 's');
 	}, 1000)
 
 };
@@ -120,6 +129,7 @@ $('button').on('click', ()=>{
 
 $('#namePetBut').on('click', ()=>{
 	console.log('name pet button works');
+	setTimer();
 })
 
 $('#petPetBut').on('click', ()=>{
