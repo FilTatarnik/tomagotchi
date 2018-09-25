@@ -1,5 +1,12 @@
 // console.log('words');
-
+/**********************************************
+MVP REQUIREMENTS:
+start button starts timer that increases to X and once X is hit without any other buttons being pressed. You die
+each button pressed adds one to either Hunger(1-10), Sleepiness(1-10), Boredom(1-10)
+Age goes up regardless
+make setInterval that goes up to 60 seconds
+If user timer reaches 60 while, hunger, sleepiness, n boredom aren't 0. then console log "you win!"
+**********************************************/
 //create an object for our tomagotchi
 //attach properties to the object
 //create a game object
@@ -25,18 +32,65 @@
 //animate the tomagotchi somehow.. maybe every time one of the object properties goes up or down it moves one to the left or one to the right
 //game
 //class --- objects
-let Katagachi = class {
+/******************************************
+Our pet object. Our pet has different constructors 
+*******************************************/
+class Katagachi{
   constructor(boredom, name, age, sleepiness, hunger ) {
     this.name = name;
     this.age = age;
     this.boredom = boredom;
     this.sleepiness = sleepiness;
     this.hunger = hunger;
-  }
+/************************************************
+Below are the methods associated with the katagachi
+
+*************************************************/
+	instantiate = ()=>{
+
+		}	
+
+	isAlive = ()=>{
+
+		}
+
+	feedUp = ()=>{
+
+		}
+
+	lightsOff = ()=> {
+
+		}
+
+	petUp = ()=> {
+
+		}
+
+	sleepUp = ()=> {
+
+		}	
+	}
 };
+/************************************************
+Below is the function that is attached to the name button that starts the timer
+from 0 to 60s. //to add later-- if timer reaches 60. clear interval and restart everything.. somehow..
 
+*************************************************/
+const setTimer = () => {
+	const interval = setInterval(()=>{
+		time++;
+	if(time === 60){
+		clearInterval(interval);
 
+	}
+	}, 1000)
 
+};
+/************************************************
+Below is the game object. The game object will have all of the methods that are associated with
+the game itsself; example: startGame().....uhh and other methods.... figure this out asap
+
+*************************************************/
 // //game object
 // const game = {
 // 	pet()=> {
@@ -52,7 +106,14 @@ let Katagachi = class {
 
 
 
-//listeners
+/************************************************
+Below are Listeners that are attached to the buttons on screen. 
+each listener will have funcitons that do different things to the game, like
+pet button will call the petUp function that decreases the pets sadness by one per click
+lightsOffButton will call the lightsOff function that makes the screen go black for 1000 milliseconds and it will decrease the pet's sleepiness by 1 
+feed button will decrease pet's hunger by 1 per click
+
+*************************************************/
 $('button').on('click', ()=>{
 	console.log("buttons work");
 })

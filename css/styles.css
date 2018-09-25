@@ -1,5 +1,6 @@
-.screen {
-	background-color:beige;
-	max-width: 50%;
-	height: 600px;
+body{
+	background-color: lightblue;
 }
+.screen {
+	text-align: center;
+	}
