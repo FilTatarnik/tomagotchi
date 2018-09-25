@@ -70,6 +70,7 @@ Below are the methods associated with the katagachi
 	}
 
 	lightsOff()  {
+
 		//subtract 1 from sleepiness
 	}
 
@@ -154,7 +155,16 @@ $('#feedBut').on('click', ()=>{
 
 
 /************************************************
-TODO NEXT: add events to pet, lights off and feed buttons so hunger, sleepiness, and boredom will go up by one. also set hunger, sleepiness and boredom to X number and set interval them to go to zero.
+TODO NEXT: x. add events to pet, lights off and feed buttons so hunger, sleepiness, and boredom will go up by one. also set hunger, sleepiness and boredom to X number and set interval them to go to zero.
+			x. finish katagachi methods, feedUp method should subtract one from hunger
+			x. lightsOff method should subtract one from sleepiness
+			x. petUp should subtract one from boredom
+		X.connect above methods to corresponding event listeners, so when you click the buttons, the function runs and subtracts from the proper span.
+		X. add more shit to the game object, functions n stuff so you can just type game.start(); at the end of your code and have the whole game run.... i think..
+		X. figure out how to put my katagachi onto the screen. instantiate the katagachi onto the screen and have it chill there, when it dies. it goes away.. maybe with jquery animation
+		X. connect the input form in the beginning where you input your katagachi's name and click the name your pet button to start the game and instantiate your katagachi to the screen with all its properties that are decrease or increase .. idk i'm so tired. 
+		X. add katamari damacy cover art as the background for the body, then instantiate your katagachi onto the screen so it looks like he's chilling in his home world
+		X. 
 *************************************************/
 
 

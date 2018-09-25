@@ -1,6 +1,8 @@
 body{
-	background-color: lightblue;
+	background-image: url(https://cdn-images-1.medium.com/max/1680/0*cJnEuPbNBcoPR4dx.jpeg);
+	max-height: 50%;
 }
 .screen {
 	text-align: center;
+	padding-top: 200px;
 	}
