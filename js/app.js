@@ -66,13 +66,15 @@ class Katagachi {
 		}
 	}
 
-	gameWin() {
-		if(this.time === 60){
-			return true;
-		} else{
-			return false;
-		}
-	}
+	// gameWin() {
+
+
+	// 	if(game.time === 60){
+	// 		return true;
+	// 	} else{
+	// 		return false;
+	// 	}
+	// }
 
 		//if boredom, sleepiness, and hunger are > 0 --> isAlive true
 		//else if boredom, sleepiness, and hunger are = 0 --->isAlive false
@@ -100,7 +102,16 @@ const game = {
 
 	katagachi: null, //initial value
 
-	interval: null, 
+	interval: null,
+
+	win() {
+		// tell the user they won!
+		$("body").append('you win')
+
+		// stop the timer
+		clearInterval(this.interval);
+
+	},
 
 	setNameAndStartGame() { 
 
@@ -147,29 +158,23 @@ const game = {
 				this.katagachi.hunger++
 			}
 			
-
+			//WIN!
 			if(time === 60){
-				// DIE
-				clearInterval(this.interval);
+				game.win();
 			}
 
 			$('#timer').text('Timer ' + time + ' hour');
 
 			this.updateStats()
 
-			if(game.katagachi.isDead()){
+			if(game.katagachi.isDead()) {
 				clearInterval(this.interval);
 				$('#kataGif').velocity('transition.shrinkOut', 2000)
 				$('#display-name').velocity('transition.shrinkOut', 2000)
-				
-			if(game.katagachi.gameWin()){
-				clearInterval(this.interval);
-				$('#display-name').append('<h1>YOU LOSE</h1>')
-			}	// hide/velocity/whatever h2 display name
-
-				// alert("he dead"
+			
 
 			}
+
 		}, 500)
 
 	},
