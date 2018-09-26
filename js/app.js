@@ -114,9 +114,10 @@ class Katagachi {
 
 const game = {
 
+
 	katagachi: null, //initial value
 
-	setNameAndStartGame() {
+	setNameAndStartGame() { 
 
 		// get the name
 		const name = $('#nameInput').val()
@@ -127,19 +128,18 @@ const game = {
 
 		// store it in the game object so it won't go away when function is finished
 		this.katagachi = fil;
-
-
-		// remove the input field
 		
+		// remove the input field
+		$('#nameInput').hide();
+
 		// remove button
+		$('#namePetBut').hide();
 
 		// display just the name where those were
 
 		// timer start
 
-
-
-
+		// COMMIT
 	},
 
 	printStats() {
@@ -149,24 +149,24 @@ const game = {
 }
 
 
-const shoes = {
-    price: 50,
- 	increasePrice () {
- 		this.price = 1000;
- 	}
-}   
+// const shoes = {
+//     price: 50,
+//  	increasePrice () {
+//  		this.price = 1000;
+//  	}
+// }   
 
 
-class Person {
-	constructor(name) {
-		this.name = name;
-	}
-	greet() {
-		console.log("Hello I am " + this.name)
-	}
-}
+// class Person {
+// 	constructor(name) {
+// 		this.name = name;
+// 	}
+// 	greet() {
+// 		console.log("Hello I am " + this.name)
+// 	}
+// }
 
-const filip = new Person('fil');
+// const filip = new Person('fil');
 
 /************************************************
 Below is the function that is attached to the name button that starts the timer
@@ -174,7 +174,7 @@ from 0 to 60s. //to add later-- if timer reaches 60. clear interval and restart 
 
 *************************************************/
 const setTimer = () => {
-	const interval = setInterval(() => {
+		const interval = setInterval(() => {
 		time++;
 		if(time === 60){
 			clearInterval(interval);
@@ -239,9 +239,9 @@ lightsOffButton will call the lightsOff function that makes the screen go black 
 feed button will decrease pet's hunger by 1 per click
 
 *************************************************/
-$('button').on('click', ()=>{
-	console.log("buttons work");
-})
+// $('button').on('click', ()=>{
+// 	console.log("buttons work");
+// })
 
 $('#namePetBut').on('click', () => {
 
@@ -257,7 +257,7 @@ $('#namePetBut').on('click', () => {
 
 $('#petPetBut').on('click', ()=>{
 	console.log('pet button works');
-	petDown();
+	// petDown();
 
 })
 
