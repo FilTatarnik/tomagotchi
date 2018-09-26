@@ -36,21 +36,30 @@ PSEUDOCODE
 //class --- objects
 **********************************************/
 
+
+
+
+
+
+
+
+
+
 /************************************************
 Below are global variables
 *************************************************/
-// let time = 0;
-// let hunger = 0;
-// let sleepiness = 0;
-// let boredom = 0;
+	let time = 0;
+	let hunger = 0;
+	let sleepiness = 0;
+	let boredom = 0;
 /******************************************
 Our pet object. Our pet has different constructors.. i'm not too sure what this._____ is or does. read up on it
 *******************************************/
 class Katagachi{
-  	constructor(boredom, name, age, sleepiness, hunger ) {
+  	constructor(name, age, sleepiness, boredom, hunger ) {
 	    this.name = name;
 	    this.age = age;
-	    this.boredom = boredom;
+	    this.boredom = boredom;		       /* <--no idea what this stuff is*/
 	    this.sleepiness = sleepiness;
 	    this.hunger = hunger;
 	}
@@ -61,24 +70,33 @@ Below are the methods associated with the katagachi
 
 
 	isAlive() {
+		if(this.boredom ,
+		   this.sleepiness,
+		   this.hunger > 0){return true;}
+		   		 else if (this.boredom,
+		   				  this.sleepiness,
+		   				  this.hunger = 0){return false;}
+		   		}
+
+		}
 		//if boredom, sleepiness, and hunger are > 0 --> isAlive true
 		//else if boredom, sleepiness, and hunger are = 0 --->isAlive false
-	}
+	
 
-	feedUp() {
-		// subtract 1 from hunger
-	}
+	// feedUp() {
+	// 	// subtract 1 from hunger
+	// }
 
-	lightsOff()  {
+	// lightsOff()  {
 
-		//subtract 1 from sleepiness
-	}
+	// 	//subtract 1 from sleepiness
+	// }
 
-	petUp() {
-		//subtract 1 from boredom
-	}
+	// petUp() {
+	// 	//subtract 1 from boredom
+	// }
 
-};
+
 
 /************************************************
 Below is the function that is attached to the name button that starts the timer
@@ -98,30 +116,24 @@ const setTimer = () => {
 };
 
 /************************************************
+Below is the where i'm going to build the timer object. and stick the timer variable inside of it, and i will handle all the button setInterval timers in there with if statements i think...
+
+*************************************************/
+// timer () {
+
+// }
+
+/************************************************
 Below is the function that is attached to the pet button that will increase the Happiness meter by one per click... i guess. also make it so hapiness starts at like.. 20 or something at decreases one every 3000-4000 milliseconds or soemthing
 *************************************************/
-// const 
+
 /************************************************
 Below is the game object. The game object will have all of the methods that are associated with
 the game itsself; example: startGame().....uhh and other methods.... figure this out asap
 
 *************************************************/
-// //game object
-const game = {
-
-// 	pet()=> {
-
-// 	}
-
-// 	turnOffLights() =>{
-
-// 	}
-}
-
-
-
-
-
+// //game object <------- no idea what to do w that game object
+//  
 /************************************************
 Below are Listeners that are attached to the buttons on screen. 
 each listener will have funcitons that do different things to the game, like
@@ -154,22 +166,29 @@ $('#feedBut').on('click', ()=>{
 
 
 
-/************************************************
-TODO NEXT: x. add events to pet, lights off and feed buttons so hunger, sleepiness, and boredom will go up by one. also set hunger, sleepiness and boredom to X number and set interval them to go to zero.
-			x. finish katagachi methods, feedUp method should subtract one from hunger
-			x. lightsOff method should subtract one from sleepiness
-			x. petUp should subtract one from boredom
-		X.connect above methods to corresponding event listeners, so when you click the buttons, the function runs and subtracts from the proper span.
-		X. add more shit to the game object, functions n stuff so you can just type game.start(); at the end of your code and have the whole game run.... i think..
-		X. figure out how to put my katagachi onto the screen. instantiate the katagachi onto the screen and have it chill there, when it dies. it goes away.. maybe with jquery animation
-		X. connect the input form in the beginning where you input your katagachi's name and click the name your pet button to start the game and instantiate your katagachi to the screen with all its properties that are decrease or increase .. idk i'm so tired. 
-		X. add katamari damacy cover art as the background for the body, then instantiate your katagachi onto the screen so it looks like he's chilling in his home world
-		X. 
-*************************************************/
+
+
+
+
+
+// ***********************************************//
+// TODO NEXT: x. figure out how to make 
+// x. add events to pet, lights off and feed buttons so hunger, sleepiness, and boredom will go up by one. also set hunger, sleepiness and boredom to X number and set interval them to go to zero.
+// 			x. finish katagachi methods, feedUp method should subtract one from hunger
+// 			x. lightsOff method should subtract one from sleepiness
+// 			x. petUp should subtract one from boredom
+// 		X.connect above methods to corresponding event listeners, so when you click the buttons, the function runs and subtracts from the proper span.
+// 		X. add more shit to the game object, functions n stuff so you can just type game.start(); at the end of your code and have the whole game run.... i think..
+// 		X. figure out how to put my katagachi onto the screen. instantiate the katagachi onto the screen and have it chill there, when it dies. it goes away.. maybe with jquery animation
+// 		// X. connect the input form in the beginning where you input your katagachi's name and click the name your pet button to start the game and instantiate your katagachi to the screen with all its properties that are decrease or increase 
+// 		X. max on the timer is 60s. if timer === 60s jquery the name your pet button into a button that refreshes the page. 
+
+//x.
+// ************************************************//
 
 
 
 
 
 
-//game.start()
+// game();
