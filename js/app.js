@@ -125,6 +125,7 @@ const game = {
 		// setTimer();
 		// COMMIT
 	},
+/*****************************setNameAndStartGame function end************/
 	setTimer() {
 	let time = 0;
 			const interval = setInterval(() => {
@@ -136,52 +137,9 @@ const game = {
 		 		$('#timer').text('Timer ' + time + ' hour');
 			}, 1000)
 	},
-/*****************************first function end************/
-	// printStats() {
-
-	// }
-
-}
-
-
-															// const shoes = {
-															//     price: 50,
-															//  	increasePrice () {
-															//  		this.price = 1000;
-															//  	}
-															// }   
-
-
-															// class Person {
-															// 	constructor(name) {
-															// 		this.name = name;
-															// 	}
-															// 	greet() {
-															// 		console.log("Hello I am " + this.name)
-															// 	}
-															// }
-
-															// const filip = new Person('fil');
-
-/*********************END GAME OBJECT***************************/
-/************************************************
-Below is the function that is attached to the name button that starts the timer
-from 0 to 60s. //to add later-- if timer reaches 60. clear interval and restart everything.. somehow..
-
-*************************************************/
-// const setTimer = () => {
-// 		const interval = setInterval(() => {
-// 		time++;
-// 		if(time === 60){
-// 			clearInterval(interval);
-
-// 		}
-// 	 	$('#timer').text('Timer ' + time + ' hour');
-// 	}, 1000)
-
-// };
-
-const boredTimer = () =>{
+/*****************************setTimer function end************/
+ 	boredTimer() {
+ 	let boredom = 0;
 		const interval = setInterval(() => {
 		boredom++;
 		if(boredom === 12){
@@ -190,33 +148,47 @@ const boredTimer = () =>{
 		}
 	 	$('#boredom').text('Boredom ' + boredom );
 	}, 5000)
-};
+	},
+/*****************************boredTimer function end************/
 
-const sleepTimer = () =>{
-		const interval = setInterval(() => {
-		sleepiness++;
-		if(sleepiness === 12){
-			clearInterval(interval);
-			// gameOver(); <----make game over function that lets the user know when the game has ended
+    sleepTimer() {
+    	let sleepiness = 0;
+			const interval = setInterval(() => {
+			sleepiness++;
+			if(sleepiness === 12){
+				clearInterval(interval);
+				// gameOver(); <----make game over function that lets the user know when the game has ended
 
 
-		}
-	 	$('#sleepiness').text('Sleepiness ' + sleepiness );
-	}, 8000)
-};
+			}
+		 	$('#sleepiness').text('Sleepiness ' + sleepiness );
+		}, 8000)
+	},
+/*****************************sleepTimer function end************/
+	hungerTimer() {
+		let hunger = 0;
+			const interval = setInterval(() => {
+			hunger++;
+			if(hunger === 12){
+				clearInterval(interval);
+				// gameOver(); <----make game over function that lets the user know when the game has ended
+				
 
-const hungerTimer = () =>{
-		const interval = setInterval(() => {
-		hunger++;
-		if(hunger === 12){
-			clearInterval(interval);
-			// gameOver(); <----make game over function that lets the user know when the game has ended
-			
+			}
+		 	$('#hunger').text('hunger ' + hunger );
+		}, 3000)
+	},
+	// printStats() {
 
-		}
-	 	$('#hunger').text('hunger ' + hunger );
-	}, 3000)
-};
+	// }
+
+}
+
+/*********************END GAME OBJECT***************************/
+/************************************************
+Below is the function that is attached to the name button that starts the timer
+from 0 to 60s. //to add later-- if timer reaches 60. clear interval and restart everything.. somehow..
+
 /************************************************
 Below is the where i'm going to build the timer object. and stick the timer variable inside of it, and i will handle all the button setInterval timers in there with if statements i think...
 
@@ -243,9 +215,9 @@ $('#namePetBut').on('click', () => {
 
 	game.setNameAndStartGame();
 	game.setTimer();
-	// boredTimer();
-	// sleepTimer();
-	// hungerTimer();
+	game.boredTimer();
+	game.sleepTimer();
+	game.hungerTimer();
 	
 })
 
