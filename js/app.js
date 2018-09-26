@@ -93,10 +93,11 @@ class Katagachi {
 
 }
 
-
+/***********************END KATAGACHI CLASS*************/
+/*****************GAME OBJECT******************/
 const game = {
 
-	// time: 0,
+	time: null,
 
 	katagachi: null, //initial value
 
@@ -124,7 +125,18 @@ const game = {
 		// setTimer();
 		// COMMIT
 	},
+	setTimer() {
+	let time = 0;
+			const interval = setInterval(() => {
+				time++;
+			if(time === 60){
+				clearInterval(interval);
 
+			}
+		 		$('#timer').text('Timer ' + time + ' hour');
+			}, 1000)
+	},
+/*****************************first function end************/
 	// printStats() {
 
 	// }
@@ -132,41 +144,42 @@ const game = {
 }
 
 
-// const shoes = {
-//     price: 50,
-//  	increasePrice () {
-//  		this.price = 1000;
-//  	}
-// }   
+															// const shoes = {
+															//     price: 50,
+															//  	increasePrice () {
+															//  		this.price = 1000;
+															//  	}
+															// }   
 
 
-// class Person {
-// 	constructor(name) {
-// 		this.name = name;
-// 	}
-// 	greet() {
-// 		console.log("Hello I am " + this.name)
-// 	}
-// }
+															// class Person {
+															// 	constructor(name) {
+															// 		this.name = name;
+															// 	}
+															// 	greet() {
+															// 		console.log("Hello I am " + this.name)
+															// 	}
+															// }
 
-// const filip = new Person('fil');
+															// const filip = new Person('fil');
 
+/*********************END GAME OBJECT***************************/
 /************************************************
 Below is the function that is attached to the name button that starts the timer
 from 0 to 60s. //to add later-- if timer reaches 60. clear interval and restart everything.. somehow..
 
 *************************************************/
-const setTimer = () => {
-		const interval = setInterval(() => {
-		time++;
-		if(time === 60){
-			clearInterval(interval);
+// const setTimer = () => {
+// 		const interval = setInterval(() => {
+// 		time++;
+// 		if(time === 60){
+// 			clearInterval(interval);
 
-		}
-	 	$('#timer').text('Timer ' + time + ' hour');
-	}, 1000)
+// 		}
+// 	 	$('#timer').text('Timer ' + time + ' hour');
+// 	}, 1000)
 
-};
+// };
 
 const boredTimer = () =>{
 		const interval = setInterval(() => {
@@ -229,9 +242,7 @@ feed button will decrease pet's hunger by 1 per click
 $('#namePetBut').on('click', () => {
 
 	game.setNameAndStartGame();
-
-	// console.log('name pet button works');
-	// setTimer();
+	game.setTimer();
 	// boredTimer();
 	// sleepTimer();
 	// hungerTimer();
