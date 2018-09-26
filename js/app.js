@@ -42,12 +42,6 @@ Below is the function that is attached to the pet button that will increase the 
 Below is the game object. The game object will have all of the methods that are associated with
 the game itsself; example: startGame().....uhh and other methods.... figure this out asap
 /************************************************
-Below are global variables
-*************************************************/
-	// let time = 0;
-	// let hunger = 0;
-	// let sleepiness = 0;
-	// let boredom = 0;
 /******************************************
 Our pet object. Our pet has different constructors.. i'm not too sure what this._____ is or does. read up on it
 *******************************************/
@@ -76,21 +70,19 @@ class Katagachi {
 		//else if boredom, sleepiness, and hunger are = 0 --->isAlive false
 	feedUp() {
 		// subtract 1 from hunger
-		hunger--;
+		this.hunger--;
+		$('#hunger').text('Hunger: ' + this.hunger);
 	}
 
-	// lightsOff()  {
-
-	// 	//subtract 1 from sleepiness
-	// }
-
-	petDown() {
-		// if($('#petPetBut').on('click', ()=> {
-		// 	this.petPetBut--;
-		// }))
-	// 	//subtract 1 from boredom
+	petUp()  {
+		this.boredom--;
+		$('#boredom').text('Boredom ' + this.boredom);
+		//subtract 1 from sleepiness
 	}
-
+	sleepDown() {
+		this.sleepiness--;
+		$('#sleepiness').text('Sleepiness ' + this.sleepiness)
+	}
 }
 
 /***********************END KATAGACHI CLASS*************/
@@ -128,57 +120,39 @@ const game = {
 	},
 /*****************************setNameAndStartGame function end************/
 	setTimer() {
-	let time = 0;
-			const interval = setInterval(() => {
-				time++;
-			if(time === 60){
-				clearInterval(interval);
-
-			}
-		 		$('#timer').text('Timer ' + time + ' hour');
-			}, 1000)
-	},
-/*****************************setTimer function end************/
- 	boredTimer() {
- 	let boredom = 0;
+		let time = 0;
 		const interval = setInterval(() => {
-		boredom++;
-		if(boredom === 12){
-			clearInterval(interval);
+			time++;
 
-		}
-	 	$('#boredom').text('Boredom ' + boredom );
-	}, 5000)
-	},
-/*****************************boredTimer function end************/
-    sleepTimer() {
-    	let sleepiness = 0;
-			const interval = setInterval(() => {
-			sleepiness++;
-			if(sleepiness === 12){
-				clearInterval(interval);
-				// gameOver(); <----make game over function that lets the user know when the game has ended
-
-
+			// every 5 seconds boredom increases
+			if(time % 5 === 0){
+				this.katagachi.boredom++
+				$('#boredom').text('Boredom: ' + this.katagachi.boredom)
 			}
-		 	$('#sleepiness').text('Sleepiness ' + sleepiness );
-		}, 2000)
-	},
-/*****************************sleepTimer function end************/
-	hungerTimer() {
-		let hunger = 0;
-			const interval = setInterval(() => {
-			hunger++;
-			if(hunger === 12){
-				clearInterval(interval);
-				// gameOver(); <----make game over function that lets the user know when the game has ended
-				
 
+			// every 2 seconds sleepiness increases
+			if(time % 4 === 0){
+				this.katagachi.sleepiness++
+				$('#sleepiness').text('Sleepiness ' + this.katagachi.sleepiness)
 			}
-		 	$('#hunger').text('hunger ' + hunger );
-		}, 3000)
+
+			// every 3 seconds hunger increases
+			if(time % 3 === 0){
+				this.katagachi.hunger++
+				$('#hunger').text('Hunger: ' + this.katagachi.hunger)
+			}
+
+
+			if(time === 60){
+				// DIE
+				clearInterval(interval);
+			}
+			$('#timer').text('Timer ' + time + ' hour');
+		}, 1000)
 	},
 }
+
+	
 /*********************END GAME OBJECT***************************/
 /************************************************
 Below is the function that is attached to the name button that starts the timer
@@ -200,51 +174,33 @@ each listener will have funcitons that do different things to the game, like
 pet button will call the petUp function that decreases the pets sadness by one per click
 lightsOffButton will call the lightsOff function that makes the screen go black for 1000 milliseconds and it will decrease the pet's sleepiness by 1 
 feed button will decrease pet's hunger by 1 per click
-
 *************************************************/
-// $('button').on('click', ()=>{
-// 	console.log("buttons work");
-// })
-
 $('#namePetBut').on('click', () => {
 
 	game.setNameAndStartGame();
 	game.setTimer();
-	game.boredTimer();
-	game.sleepTimer();
-	game.hungerTimer();
+
 	
 })
-
 $('#petPetBut').on('click', ()=>{
 	console.log('pet button works');
+	game.katagachi.petUp();
 	// petDown();
 
 })
-
 $('#lightOffBut').on('click', ()=>{
 	console.log('lights off button works');
+	game.katagachi.sleepDown();
 })
-
 $('#feedBut').on('click', ()=>{
 	console.log('feed button works');
+	game.katagachi.feedUp();
+	// console.log(katagachi)
+	// console.log(katagachi.feedUp());
 })
-
-/********************************************************************
-Event listener for removing input field after Create Katagachi is hit // doesn't do anything atm
-********************************************************************/
-// $('#nameInput').on('click', () => {
-// 	if ($('#nameInput').val() == "Katagachi!")
-// 		$('#nameInput').val("")
-// });
 /********************************************************************
 When user presses 
 ********************************************************************/
-
-
-
-
-
 // ***********************************************//
 // TODO NEXT: x. figure out how to make 
 // x. add events to pet, lights off and feed buttons so hunger, sleepiness, and boredom will go up by one. also set hunger, sleepiness and boredom to X number and set interval them to go to zero.
@@ -259,10 +215,3 @@ When user presses
 
 //x.
 // ************************************************//
-
-
-
-
-
-
-// game();

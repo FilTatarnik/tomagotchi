@@ -2,6 +2,7 @@ body{
 	font-family: 'Sniglet', cursive;
 	background-image: url(https://cdn-images-1.medium.com/max/1680/0*cJnEuPbNBcoPR4dx.jpeg);
 	background-size: cover;
+	background-repeat: no-repeat;
 	max-height: 50%;
 }
 .screen {
