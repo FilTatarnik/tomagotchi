@@ -26,6 +26,9 @@ h3 {
 	max-width: 50%
 }
 
+h2#display-name {
+text-align: right;}
+
 #nameInput {
 	text-align: center;
 	font-family: 'Sniglet', cursive;

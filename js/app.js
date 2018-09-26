@@ -35,26 +35,12 @@ PSEUDOCODE
 //game
 //class --- objects
 **********************************************/
-
-
-
-
-
-
-
-
-
 /************************************************
 Below is the function that is attached to the pet button that will increase the Happiness meter by one per click... i guess. also make it so hapiness starts at like.. 20 or something at decreases one every 3000-4000 milliseconds or soemthing
 *************************************************/
-
 /************************************************
 Below is the game object. The game object will have all of the methods that are associated with
 the game itsself; example: startGame().....uhh and other methods.... figure this out asap
-
-*************************************************/
-// //game object <------- no idea what to do w that game object
-
 /************************************************
 Below are global variables
 *************************************************/
@@ -86,12 +72,8 @@ class Katagachi {
 		   	return false;
 		}
 	}
-
-		
 		//if boredom, sleepiness, and hunger are > 0 --> isAlive true
 		//else if boredom, sleepiness, and hunger are = 0 --->isAlive false
-	
-
 	feedUp() {
 		// subtract 1 from hunger
 		hunger--;
@@ -114,6 +96,7 @@ class Katagachi {
 
 const game = {
 
+	// time: 0,
 
 	katagachi: null, //initial value
 
@@ -136,15 +119,15 @@ const game = {
 		$('#namePetBut').hide();
 
 		// display just the name where those were
-
+		$('#display-name').append(name)
 		// timer start
-
+		// setTimer();
 		// COMMIT
 	},
 
-	printStats() {
+	// printStats() {
 
-	}
+	// }
 
 }
 
