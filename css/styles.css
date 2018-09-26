@@ -28,7 +28,14 @@ h3 {
 }
 
 h2#display-name {
-text-align: left;}
+	text-align: left;
+}
+
+#gamewon {
+	font-size: 400px;
+	margin: 0;
+	color: limegreen;
+}
 
 #nameInput {
 	text-align: center;

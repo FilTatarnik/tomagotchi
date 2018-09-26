@@ -106,7 +106,7 @@ const game = {
 
 	win() {
 		// tell the user they won!
-		$("body").append('you win')
+		$("#gamewon").append('you win')
 
 		// stop the timer
 		clearInterval(this.interval);
