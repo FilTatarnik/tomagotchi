@@ -1,7 +1,7 @@
 body{
 	font-family: 'Sniglet', cursive;
-
 	background-image: url(https://cdn-images-1.medium.com/max/1680/0*cJnEuPbNBcoPR4dx.jpeg);
+	background-size: cover;
 	max-height: 50%;
 }
 .screen {
@@ -27,13 +27,15 @@ h3 {
 }
 
 h2#display-name {
-text-align: right;}
+text-align: left;}
 
 #nameInput {
 	text-align: center;
 	font-family: 'Sniglet', cursive;
 	font-size: 25px;
 }
+#kataGif {
+align-items: center;}
 
 /*attempt at a loader*/
 /*now figure out how to jquery a loading screen for the loader to chill at for like.. 20000 or 30000 milliseconds right as the page reloads before removing the full screen div revealing the game underneath.. i think that's how it'd work. jquery the loader to only appear when the black div is on the screen and make the loader disappear when the loading screen div goes away */
@@ -46,7 +48,7 @@ text-align: right;}
 	border-radius: 50%;
 	width: 120px;
 	height: 120px;
-	animation: spin 5s linear infinite;
+	animation: spin 7s linear infinite;
 }
 
 @keyframes spin {

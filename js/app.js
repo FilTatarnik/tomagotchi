@@ -94,6 +94,7 @@ class Katagachi {
 }
 
 /***********************END KATAGACHI CLASS*************/
+
 /*****************GAME OBJECT******************/
 const game = {
 
@@ -150,7 +151,6 @@ const game = {
 	}, 5000)
 	},
 /*****************************boredTimer function end************/
-
     sleepTimer() {
     	let sleepiness = 0;
 			const interval = setInterval(() => {
@@ -162,7 +162,7 @@ const game = {
 
 			}
 		 	$('#sleepiness').text('Sleepiness ' + sleepiness );
-		}, 8000)
+		}, 2000)
 	},
 /*****************************sleepTimer function end************/
 	hungerTimer() {
@@ -178,12 +178,7 @@ const game = {
 		 	$('#hunger').text('hunger ' + hunger );
 		}, 3000)
 	},
-	// printStats() {
-
-	// }
-
 }
-
 /*********************END GAME OBJECT***************************/
 /************************************************
 Below is the function that is attached to the name button that starts the timer
