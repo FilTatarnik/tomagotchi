@@ -55,7 +55,6 @@ class Katagachi {
 	}
 	/************************************************
 	Below are the methods associated with the katagachi
-
 	*************************************************/
 	isAlive() {
 
@@ -84,9 +83,7 @@ class Katagachi {
 		$('#sleepiness').text('Sleepiness ' + this.sleepiness)
 	}
 }
-
 /***********************END KATAGACHI CLASS*************/
-
 /*****************GAME OBJECT******************/
 const game = {
 
@@ -127,46 +124,42 @@ const game = {
 			// every 5 seconds boredom increases
 			if(time % 5 === 0){
 				this.katagachi.boredom++
-				$('#boredom').text('Boredom: ' + this.katagachi.boredom)
 			}
 
 			// every 2 seconds sleepiness increases
 			if(time % 4 === 0){
 				this.katagachi.sleepiness++
-				$('#sleepiness').text('Sleepiness ' + this.katagachi.sleepiness)
 			}
 
 			// every 3 seconds hunger increases
 			if(time % 3 === 0){
 				this.katagachi.hunger++
-				$('#hunger').text('Hunger: ' + this.katagachi.hunger)
 			}
-
+			
 
 			if(time === 60){
 				// DIE
 				clearInterval(interval);
 			}
 			$('#timer').text('Timer ' + time + ' hour');
+			this.updateStats()
 		}, 1000)
-	},
-}
 
-	
+	},
+	updateStats() {
+		$('#boredom').text('Boredom: ' + this.katagachi.boredom)
+		$('#sleepiness').text('Sleepiness ' + this.katagachi.sleepiness)
+		$('#hunger').text('Hunger: ' + this.katagachi.hunger)
+
+	}
+}
 /*********************END GAME OBJECT***************************/
 /************************************************
 Below is the function that is attached to the name button that starts the timer
 from 0 to 60s. //to add later-- if timer reaches 60. clear interval and restart everything.. somehow..
-
 /************************************************
 Below is the where i'm going to build the timer object. and stick the timer variable inside of it, and i will handle all the button setInterval timers in there with if statements i think...
-
 *************************************************/
-// timer () {
-
-// }
-
-/************************************************
 /************************************************
 EVENT LISTENERS---
 Below are Listeners that are attached to the buttons on screen. 
