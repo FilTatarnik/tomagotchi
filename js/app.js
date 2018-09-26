@@ -56,15 +56,24 @@ class Katagachi {
 	/************************************************
 	Below are the methods associated with the katagachi
 	*************************************************/
-	isAlive() {
+	isDead() {
 
-		if(this.boredom < 10 && this.sleepiness < 10 && this.hunger < 10){
+		if(this.boredom === 12 || this.sleepiness === 12 || this.hunger === 12){
 			return true;
 		}
 		else {
 		   	return false;
 		}
 	}
+
+	gameWin() {
+		if(this.time === 60){
+			return true;
+		} else{
+			return false;
+		}
+	}
+
 		//if boredom, sleepiness, and hunger are > 0 --> isAlive true
 		//else if boredom, sleepiness, and hunger are = 0 --->isAlive false
 	feedUp() {
@@ -90,6 +99,8 @@ const game = {
 	time: null,
 
 	katagachi: null, //initial value
+
+	interval: null, 
 
 	setNameAndStartGame() { 
 
@@ -118,32 +129,48 @@ const game = {
 /*****************************setNameAndStartGame function end************/
 	setTimer() {
 		let time = 0;
-		const interval = setInterval(() => {
+		this.interval = setInterval(() => {
 			time++;
 
 			// every 5 seconds boredom increases
-			if(time % 5 === 0){
+			if(time % 4 === 0){
 				this.katagachi.boredom++
 			}
 
 			// every 2 seconds sleepiness increases
-			if(time % 4 === 0){
+			if(time % 3 === 0){
 				this.katagachi.sleepiness++
 			}
 
 			// every 3 seconds hunger increases
-			if(time % 3 === 0){
+			if(time % 2 === 0){
 				this.katagachi.hunger++
 			}
 			
 
 			if(time === 60){
 				// DIE
-				clearInterval(interval);
+				clearInterval(this.interval);
 			}
+
 			$('#timer').text('Timer ' + time + ' hour');
+
 			this.updateStats()
-		}, 1000)
+
+			if(game.katagachi.isDead()){
+				clearInterval(this.interval);
+				$('#kataGif').velocity('transition.shrinkOut', 2000)
+				$('#display-name').velocity('transition.shrinkOut', 2000)
+				
+			if(game.katagachi.gameWin()){
+				clearInterval(this.interval);
+				$('#display-name').append('<h1>YOU LOSE</h1>')
+			}	// hide/velocity/whatever h2 display name
+
+				// alert("he dead"
+
+			}
+		}, 500)
 
 	},
 	updateStats() {
@@ -152,6 +179,11 @@ const game = {
 		$('#hunger').text('Hunger: ' + this.katagachi.hunger)
 
 	}
+	// gameOver(){
+	// 	if(time === 60){
+	// 		//game over
+	// 	}
+	// }
 }
 /*********************END GAME OBJECT***************************/
 /************************************************
