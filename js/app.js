@@ -1,47 +1,4 @@
-// console.log('words');
-/**********************************************
-MVP REQUIREMENTS:
-start button starts timer that increases to X and once X is hit without any other buttons being pressed. You die
-each button pressed adds one to either Hunger(1-10), Sleepiness(1-10), Boredom(1-10)
-Age goes up regardless
-make setInterval that goes up to 60 seconds
-If user timer reaches 60 while, hunger, sleepiness, n boredom aren't 0. then console log "you win!"
-**********************************************/
-/**********************************************
-PSEUDOCODE
-//create an object for our tomagotchi
-//attach properties to the object
-//create a game object
-//add methods to the game object
-//instantiate the tomagotchi with jquery to the body, or whatever you want the game to take place
-//display the tomagotchi on the screen
-//display tomagotchi's stats; hunger(1-10), sleepiness(1-10), Boredom(1-10)
-//have age be a number that incements every... minute or so? maybe every 10 minutes?
-//make buttons
-//append them to the game screen
-//make the buttons clickable
-//btn 1 : pet
-//have this pet button have something to do with the hapiness level of your pet
-//--1 pet button press = .5 happiness or something like that
-//btn 2 : turn off lights
-//--have 1 turn off lights button press change the background of the game screen to black for 1 second and refill the pets sleepiness by x amount idk
-//btn 3 : play w pet
-//-- have 1 play w pet button press add 1+ boredom 
-//add a name property to your tomagotchi object, but also make it an empty variable so the player can input their own pet name -- input field, hit enter, with a button, add a listener to th ebutton
-//every x minutes increase the pet's age x amount, until pet has turned.. idk 100 years old or something then it dies -- setInterval
-//..if pets hunger boredom or sleepiness hits 10 at any point, kill the pet
-//0-10 years, baby; 10-30 yrs, teenish; 30-90 adult
-//animate the tomagotchi somehow.. maybe every time one of the object properties goes up or down it moves one to the left or one to the right
-//game
-//class --- objects
-**********************************************/
-/************************************************
-Below is the function that is attached to the pet button that will increase the Happiness meter by one per click... i guess. also make it so hapiness starts at like.. 20 or something at decreases one every 3000-4000 milliseconds or soemthing
-*************************************************/
-/************************************************
-Below is the game object. The game object will have all of the methods that are associated with
-the game itsself; example: startGame().....uhh and other methods.... figure this out asap
-/************************************************
+
 /******************************************
 Our pet object. Our pet has different constructors.. i'm not too sure what this._____ is or does. read up on it
 *******************************************/
@@ -58,7 +15,7 @@ class Katagachi {
 	*************************************************/
 	isDead() {
 
-		if(this.boredom === 12 || this.sleepiness === 12 || this.hunger === 12){
+		if(this.boredom === 6 || this.sleepiness === 6 || this.hunger === 6){
 			return true;
 		}
 		else {
@@ -143,17 +100,17 @@ const game = {
 		this.interval = setInterval(() => {
 			time++;
 
-			// every 5 seconds boredom increases
+			// every 4 seconds boredom increases
 			if(time % 4 === 0){
 				this.katagachi.boredom++
 			}
 
-			// every 2 seconds sleepiness increases
+			// every 3 seconds sleepiness increases
 			if(time % 3 === 0){
 				this.katagachi.sleepiness++
 			}
 
-			// every 3 seconds hunger increases
+			// every 2 seconds hunger increases
 			if(time % 2 === 0){
 				this.katagachi.hunger++
 			}
@@ -169,6 +126,8 @@ const game = {
 
 			if(game.katagachi.isDead()) {
 				clearInterval(this.interval);
+				$("#gamewon").append('you lose')
+
 				$('#kataGif').velocity('transition.shrinkOut', 2000)
 				$('#display-name').velocity('transition.shrinkOut', 2000)
 			
@@ -184,11 +143,6 @@ const game = {
 		$('#hunger').text('Hunger: ' + this.katagachi.hunger)
 
 	}
-	// gameOver(){
-	// 	if(time === 60){
-	// 		//game over
-	// 	}
-	// }
 }
 /*********************END GAME OBJECT***************************/
 /************************************************
@@ -228,20 +182,3 @@ $('#feedBut').on('click', ()=>{
 	// console.log(katagachi)
 	// console.log(katagachi.feedUp());
 })
-/********************************************************************
-When user presses 
-********************************************************************/
-// ***********************************************//
-// TODO NEXT: x. figure out how to make 
-// x. add events to pet, lights off and feed buttons so hunger, sleepiness, and boredom will go up by one. also set hunger, sleepiness and boredom to X number and set interval them to go to zero.
-// 			x. finish katagachi methods, feedUp method should subtract one from hunger
-// 			x. lightsOff method should subtract one from sleepiness
-// 			x. petUp should subtract one from boredom
-// 		X.connect above methods to corresponding event listeners, so when you click the buttons, the function runs and subtracts from the proper span.
-// 		X. add more shit to the game object, functions n stuff so you can just type game.start(); at the end of your code and have the whole game run.... i think..
-// 		X. figure out how to put my katagachi onto the screen. instantiate the katagachi onto the screen and have it chill there, when it dies. it goes away.. maybe with jquery animation
-// 		// X. connect the input form in the beginning where you input your katagachi's name and click the name your pet button to start the game and instantiate your katagachi to the screen with all its properties that are decrease or increase 
-// 		X. max on the timer is 60s. if timer === 60s jquery the name your pet button into a button that refreshes the page. 
-
-//x.
-// ************************************************//
