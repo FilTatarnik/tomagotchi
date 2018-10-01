@@ -34,7 +34,7 @@ h2#display-name {
 #gamewon {
 	font-size: 400px;
 	margin: 0;
-	color: limegreen;
+	color: limegreen,;
 }
 
 #nameInput {
